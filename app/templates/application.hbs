@@ -1,3 +1,70 @@
-<h2 id="title">Welcome to Ember</h2>
+<div id="top" class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
 
-{{outlet}}
+    <a class="navbar-brand" href="//macrentals.blogspot.com" target="_blank"><i class="glyphicon glyphicon-book"></i> Blog</a>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a href="tel:+18007566227"><i class="glyphicon glyphicon-earphone"></i> (800) 756-6227</a>
+      </li>
+      <li>
+        <a class="hidden-xs" href="mailto:rentals@madcomputing.com?subject=Request%20For%20Quote"><i class="glyphicon glyphicon-envelope"></i> rentals@madcomputing.com</a>
+        <a class="visible-xs" href="mailto:rentals@madcomputing.com?subject=Request%20For%20Quote"><i class="glyphicon glyphicon-envelope"></i> email</a>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12"> 
+      <img id="title" class="img-responsive" src="/assets/images/MacRentalsLogo.jpg" alt="Mac Rentals\nEvent Technology Services">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="well text-center">
+        <h1>Rent Something Today!</h1>
+        <p class="lead">Same Day Delivery in Southern Calfornia</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="catalogue">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <ul class="list-unstyled list-inline">
+    <li>
+      <a href="//macrentals.blogspot.com" target="_blank">
+        Mac Rentals, Inc.
+      </a>
+    </li>
+    <li>  
+      <a href="tel:+18007566227">
+        <i class="glyphicon glyphicon-earphone"></i> 
+        (800) 756-6227
+      </a>
+    </li>
+    <li>
+      <a class="hidden-xs" href="mailto:rentals@madcomputing.com?subject=Request%20For%20Quote">
+         <i class="glyphicon glyphicon-envelope"></i>
+         rentals@madcomputing.com
+      </a>
+      <a class="visible-xs" href="mailto:rentals@madcomputing.com?subject=Request%20For%20Quote">
+        <i class="glyphicon glyphicon-envelope"></i>
+        email
+      </a>
+    </li>
+  </ul>
+</footer>

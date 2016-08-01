@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-xs-12">
+
+    <div class="catalogue__header text-center">
+      <i class="glyphicon glyphicon-shopping-cart"></i>
+      {{cart-total class="order-count" items=model.order.items}}
+      <button class="btn btn-primary review-button" {{action "reviewOrder" model.order.items on="click"}}>Review Order</button>
+    </div>
+
+  </div>
+</div>
+
+  {{#each model.catalogue as |catalogue|}}
+<div class="row">
+  <div class="col-xs-12">
+    <div class="category">
+      <div class="row">
+        <div class="col-xs-3 col-md-1 text-center">
+          <i class="{{catalogue.icon}}"></i>
+        </div>
+        <div class="col-xs-8 col-offset-xs-1 col-offset-md-0">
+          <div class="category__title">
+            {{catalogue.category}}
+          </div>
+        </div>
+      {{#each catalogue.subcategories as |subcategory|}}
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="subcategory">
+              {{subcategory.name}}
+            </div>
+          {{#each subcategory.items as |item|}}
+            <div class="row line-item">
+              <div class="col-xs-6">
+                {{item.label}}
+              </div>
+              <div class="col-xs-6">
+                <form class="pull-right form-inline" role="form" {{action "addItem" item on="submit"}}>
+                  <div class="form-group">
+                  <label class="qty-label control-label" for="quantity">Qty</label>
+                  <button class="btn btn-default btn-xs qty-minus crement" type="button" {{action "decItem" item on="click"}}>-</button>
+                  {{input change="setQuantity" type="number" min="0" class="form-control quantity" style="width: 30px" value=item.quantity }}
+                  <button class="btn btn-default btn-xs qty-plus crement" type="button" {{action "incItem" item on="click"}}>+</button>
+                  <button class="btn btn-info btn-xs add-button">Add</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          {{/each}}
+          </div>
+        </div>
+      {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+  {{/each}}

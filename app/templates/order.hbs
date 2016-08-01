@@ -1,0 +1,79 @@
+<table class="table table-striped">
+
+  <caption class="order-summary">
+    Order Summary:
+    <button class="btn btn-success more-items pull-right" {{action "addMoreItems" on="click"}}>
+      Add More Items
+    </button>
+  </caption>
+
+  <thead>
+    <tr>
+      <th class="text-center">
+        Qty
+      </th>
+      <th>
+        Item
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+   {{#each model.items as |item|}}
+    <tr>
+      <td class="text-center">{{item.quantity}}</td>
+      <td>
+          {{item.description}} 
+      </td>
+      <td>
+        <button class="btn btn-danger btn-sm pull-right remove-button" {{action "removeItem" item model on="click"}}>Remove</button>
+      </td>
+    </tr>
+  {{/each}}
+
+  </tbody>
+</table>
+
+<div class="renter-info">
+  <form role="form" {{action "requestQuote" model on="submit"}}>
+    <div class="form-group">
+      <label for="name">Name</label>
+      {{input type="text" id="name" change="setOrderName" value=model.renter.name placeholder="First Last"}}
+    </div>
+
+    <div class="form-group">
+      <label for="company">Company</label>
+      {{input type="text" id="company" change="setOrderCompany" value=model.renter.company placeholder="Awesome Inc."}}
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      {{input type="email" id="email" change="setOrderEmail" value=model.renter.email placeholder="boss@awesome-inc.com"}}
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      {{input type="tel" id="phone" change="setOrderPhone" value=model.renterphone placeholder="555-555-5555"}}
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      {{input type="text" id="location" change="setOrderLocation" value=model.location placeholder="Event Location"}}
+    </div>
+
+    <div class="form-group">
+      <label for="start-date">Start Date</label>
+      {{input type="date" id="start-date" change="setOrderStartDate" value=model.startDate}}
+    </div>
+
+    <div class="form-group">
+      <label for="end-date">End Date</label>
+      {{input type="date" id="end-date" change="setOrderEndDate" value=model.endDate}}
+    </div>
+
+   <button class="btn btn-success btn-lg request-quote-button">Request a Quote!</button> 
+  </form>
+</div>

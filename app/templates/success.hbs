@@ -1,0 +1,7 @@
+<div class="text-center">
+  <h4 class="congrats-header">Congratulations, {{model.renter.name}}!</h4>
+  <h4>Your request has been successfully submitted.</h4>
+  <h4>We will contact you shortly with a quote!</h4>
+
+  <button class="btn btn-success btn-lg new-order" {{action "createNewOrder" model on="click"}}>Make Another Order!</button>
+</div>

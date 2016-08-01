@@ -1,0 +1,218 @@
+$add-button: #0b5
+$brown: #654321
+$catalogue-bg: #353
+$catalogue-text: #ddd
+$contrast: 10%
+$footer-color: #422
+$gray: #999
+$light-shadow: 0 0 12px #333
+$nav-green: #696
+$nav-text: #eee
+$row-padding: 15px
+$white: #eee
+
+%header-div
+  background: lighten($catalogue-bg, $contrast / 2)
+  border-radius: 2px
+  box-shadow: 0 0 5px darken($catalogue-bg, $contrast), 0 0 10px lighten($catalogue-bg, $contrast) inset
+  padding: $row-padding
+  
+
+html, body
+  height: 100%
+
+body
+  overflow-x: hidden
+
+#top
+  background: $nav-green
+  border: none
+  box-shadow: $light-shadow
+  li
+    display: inline-block
+  a
+    color: $nav-text
+    text-decoration: none
+    &:visited
+      color: darken($nav-text, $contrast)
+    &:focus, &:hover
+      color: lighten($nav-text, $contrast)
+
+#title
+  margin: 15px auto 20px
+
+.container
+  padding: 0
+
+/* Main Page */
+
+.catalogue
+  background: $catalogue-bg
+  border-radius: 10px
+  box-shadow: $light-shadow, 0 0 12px lighten($catalogue-bg, $contrast * 1.5) inset
+  color: $catalogue-text
+  font-size: 18px
+  margin-bottom: 50px
+  padding: $row-padding
+
+.catalogue__header
+ @extend %header-div
+ i
+    font-size: 20px
+
+.order-count
+  background: #fff
+  border-radius: 2px
+  color: #333
+  display: inline
+  margin: 0 10px
+  padding: 5px
+
+.review-button
+  background: $nav-green 
+  &:hover, 
+  &:focus,
+  &:active,
+    background: lighten($nav-green, $contrast)
+
+.category
+  border-top: 2px solid darken($catalogue-bg, $contrast / 2)
+  padding: $row-padding
+  i
+    font-size: 25px
+    margin-right: 20px
+
+.category__title
+  margin-left: -30px
+  margin-bottom: 15px
+
+.subcategory
+  background: lighten($catalogue-bg, $contrast)
+  border-radius: 2px
+  box-shadow: 0 0 10px lighten($catalogue-bg, $contrast / 2) inset
+  padding: $row-padding
+
+.line-item
+  background: lighten($catalogue-bg, $contrast * 1.5)
+  border-radius: 2px
+  box-shadow: 0 0 10px lighten($catalogue-bg, $contrast / 1.5) inset
+  margin: 0
+  padding: $row-padding 35px
+
+.form-group
+  display: flex
+  align-items: center
+
+.form-control
+  border-radius: 0
+  display: inline-block
+  margin: -5px
+
+.qty-label
+  font-size: 14px
+  margin-right: 5px
+
+.qty-minus
+  border-radius: 3px 0 0 3px
+
+.qty-plus
+  border-radius: 0 3px 3px 0
+
+.crement
+  background: lighten($nav-green, $contrast * 3.5)
+  padding: 3px 6px
+  &:hover
+    background: lighten($nav-green, $contrast * 4)
+
+.quantity
+  background: lighten($nav-green, $contrast * 3)
+  height: 26px
+  padding: 5px
+  text-align: center
+  width: 30px
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+  margin: 0
+
+.add-button
+  background: $add-button
+  margin-left: 5px
+  &:hover,
+  &:focus,
+  &:active
+    background: lighten($add-button, $contrast)
+
+/* Order Summary Page */
+
+.order-summary
+  @extend %header-div
+  color: $white
+  font-weight: bold
+  margin-bottom: 10px
+
+.table
+  border-radius: 5px
+  margin-bottom: 30px
+
+thead
+  color: $white
+
+thead
+  margin: 10px
+  padding: $row-padding * 2
+
+.more-items
+  margin-right: 5%
+
+.table-striped tbody tr:nth-child(odd) td
+  background: lighten($catalogue-bg, $contrast * 3)
+
+.table-striped tbody tr:nth-child(even) td
+  background: lighten($catalogue-bg, $contrast * 2)
+
+td
+  color: $white
+  padding: $row-padding
+
+.remove-button
+  margin-right: 10%
+
+.renter-info
+  input
+    background: darken($nav-green, $contrast * 1.5)
+    border-radius: 5px
+    padding: 3px
+    width: 80%
+  label
+    min-width: 100px
+
+/* Success Page */
+
+.congrats-header
+  margin-bottom: 20px
+
+.new-order
+  margin-top: 20px
+
+footer
+  background: $footer-color
+  bottom: 0
+  box-shadow: $light-shadow
+  color: $gray
+  height: 50px
+  left: 0
+  padding: $row-padding
+  margin: 0
+  right: 0
+  a
+    text-decoration: none
+    color: lighten($gray, $contrast)
+    &:visited
+      color: darken($gray, $contrast / 2)
+    &:hover
+      color: lighten($gray, $contrast * 2)
+      text-decoration: none
+    &:active, &:focus
+      color: lighten($gray,$contrast * 3) 
