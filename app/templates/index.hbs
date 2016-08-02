@@ -3,7 +3,7 @@
 
     <div class="catalogue__header text-center">
       <i class="glyphicon glyphicon-shopping-cart"></i>
-      {{cart-total class="order-count" items=model.order.items}}
+      <span class="order-count">{{model.order.totalItems}}</span>
       <button class="btn btn-primary review-button" {{action "reviewOrder" model.order.items on="click"}}>Review Order</button>
     </div>
 
