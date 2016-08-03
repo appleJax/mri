@@ -8,7 +8,7 @@ $gray: #999
 $light-shadow: 0 0 12px #333
 $nav-green: #696
 $nav-text: #eee
-$row-padding: 15px
+$row-padding: 20px
 $white: #eee
 
 %header-div
@@ -56,8 +56,8 @@ body
   padding: $row-padding
 
 .catalogue__header
- @extend %header-div
- i
+  @extend %header-div
+  i
     font-size: 20px
 
 .order-count
@@ -97,52 +97,54 @@ body
   border-radius: 2px
   box-shadow: 0 0 10px lighten($catalogue-bg, $contrast / 1.5) inset
   margin: 0
-  padding: $row-padding 35px
+  padding: $row-padding 10px
 
 .form-group
   display: flex
   align-items: center
 
 .form-control
-  border-radius: 0
   display: inline-block
-  margin: -5px
 
-.qty-label
-  font-size: 14px
-  margin-right: 5px
+.line-item
+  i
+    margin-right: 5px
+  .item-label
+    margin-right: 15px
+    width: 170px
 
-.qty-minus
-  border-radius: 3px 0 0 3px
-
-.qty-plus
-  border-radius: 0 3px 3px 0
+.line-item-flex
+  display: flex
+  align-items: center
 
 .crement
-  background: lighten($nav-green, $contrast * 3.5)
-  padding: 3px 6px
+  margin: 0 5px
   &:hover
-    background: lighten($nav-green, $contrast * 4)
+    color: #fff
+    cursor: pointer
+
+.line-item .ember-text-field
+  width: 50px
 
 .quantity
   background: lighten($nav-green, $contrast * 3)
+  border-radius: 7px
   height: 26px
   padding: 5px
   text-align: center
-  width: 30px
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button
   -webkit-appearance: none
   margin: 0
 
-.add-button
-  background: $add-button
+.remove
+  color: $catalogue-bg
   margin-left: 5px
-  &:hover,
-  &:focus,
-  &:active
-    background: lighten($add-button, $contrast)
+  padding-top: 1px
+  &:hover
+    color: #a44
+    cursor: pointer
 
 /* Order Summary Page */
 
@@ -177,16 +179,29 @@ td
   padding: $row-padding
 
 .remove-button
-  margin-right: 10%
+  margin-right: 20%
+  &:hover
+    color: #a44
+    cursor: pointer
+
+#order-total-row td
+  background: lighten($catalogue-bg, $contrast / 1.5)
+  color: #fff
+  font-weight: bold
 
 .renter-info
   input
     background: darken($nav-green, $contrast * 1.5)
     border-radius: 5px
+    margin-right: 15px
     padding: 3px
     width: 80%
   label
     min-width: 100px
+    margin-left: 15px
+
+.request-quote-button
+  margin: 15px
 
 /* Success Page */
 
@@ -216,3 +231,8 @@ footer
       text-decoration: none
     &:active, &:focus
       color: lighten($gray,$contrast * 3) 
+
+@media (max-width: 426px)
+  .catalogue
+    padding-left: 0
+    padding-right: 0

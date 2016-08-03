@@ -97,8 +97,8 @@ lineItem = Category.create({
     ,items: [
        Item.create({description: '27" iMac (High-end)', label: '27" iMac (High-end)', quantity: 0, comments: ''})
       ,Item.create({description: '27" iMac (Low-end)', label: '27" iMac (Low-end)', quantity: 0, comments: ''})
-      ,Item.create({description: '21.5" iMac (High-end)', label: '21.5" iMac (High-end)', quantity: 0, comments: ''})
-      ,Item.create({description: '21.5" iMac (Low-end)', label: '21.5" iMac (Low-end)', quantity: 0, comments: ''})
+      ,Item.create({description: '21" iMac (High-end)', label: '21" iMac (High-end)', quantity: 0, comments: ''})
+      ,Item.create({description: '21" iMac (Low-end)', label: '21" iMac (Low-end)', quantity: 0, comments: ''})
      ]
     }
    ,{name: 'Mac Mini'
@@ -131,28 +131,54 @@ export default Ember.Service.extend({
 
  ,incrementItem(item) {
     item.incrementProperty('quantity');
-  }
+    if (item.quantity === 1) {
+      this.addOrderItem(item);
+    }
+ }
 
  ,decrementItem(item) {
     if (item.quantity === 0) {
       return;
     }
     item.decrementProperty('quantity');
+    if (item.quantity === 0) {
+      this.removeOrderItem(item);
+    }
   }
 
  ,setItemQuantity(item, qty) {
+    console.log(item.quantity, qty);
+    if (item.quantity === 0) {
+      item.set('quantity', qty);
+      console.log(item.quantity);
+      if (item.quantity > 0) {
+        item.set('ordered', true);
+        newOrder.items.pushObject(item);
+        return;
+      } else {
+        return;
+      }
+    }
+    console.log(item.quantity);
     item.set('quantity', qty);
+    console.log(item.quantity);
+    if (item.quantity === 0) {
+      item.set('ordered', false);
+      newOrder.get('items').removeObject(item);
+    }
   }
 
  ,addOrderItem(item) {
     if (item.quantity > 0) {
       newOrder.items.pushObject(item);
+      item.set('ordered', true);
     }
  } 
 
  ,removeOrderItem(item) {
     newOrder.get('items').removeObject(item);
-    item.set('quantity', 0)
+    item.set('quantity', 0);
+    item.set('ordered', false);
   }
 
  ,getOrder() {

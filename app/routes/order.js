@@ -6,6 +6,14 @@ export default Ember.Route.extend({
       this.transitionTo('index');
     }
 
+   ,decItem(item) {
+      this.get('store').decrementItem(item);
+    }
+
+   ,incItem(item) {
+      this.get('store').incrementItem(item);
+    }
+
    ,removeItem(item, order) {
       this.get('store').removeOrderItem(item);
       if (order.items.length === 0) {

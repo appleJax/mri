@@ -24,17 +24,21 @@
 
    {{#each model.items as |item|}}
     <tr>
-      <td class="text-center">{{item.quantity}}</td>
+      <td class="text-center">
+        <span class="crement" {{action "decItem" item on="click"}}>-</span> 
+        {{item.quantity}}
+        <span class="crement" {{action "incItem" item on="click"}}>+</span> 
+      </td>
       <td>
           {{item.description}} 
       </td>
       <td>
-        <button class="btn btn-danger btn-sm pull-right remove-button" {{action "removeItem" item model on="click"}}>Remove</button>
+        <i class="glyphicon glyphicon-remove-sign pull-right remove-button" {{action "removeItem" item model on="click"}}></i>
       </td>
     </tr>
   {{/each}}
 
-    <tr class="order-total-row">
+    <tr id="order-total-row">
       <td class="text-center">{{model.totalItems}}</td>
       <td>Total Items</td>
       <td></td>
