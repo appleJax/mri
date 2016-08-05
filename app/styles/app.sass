@@ -55,7 +55,6 @@ body
   font-size: 18px
   margin-bottom: 50px
   padding: $row-padding
-  padding-bottom: 8px
 
 .catalogue__header
   @extend %header-div
@@ -104,6 +103,8 @@ body
   box-shadow: 0 0 10px lighten($catalogue-bg, $contrast / 1.5) inset
   margin: 0
   padding: $row-padding 10px
+  &:hover
+    cursor: arrow
 
 .form-group
   display: flex
