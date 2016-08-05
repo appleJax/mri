@@ -5,7 +5,6 @@
       <i class="glyphicon glyphicon-shopping-cart"></i>
       <span class="order-count">{{model.order.totalItems}}</span>
       <button class="btn btn-primary review-button" {{action "reviewOrder" model.order.items on="click"}}>Review Order</button>
-      {{if
     </div>
 
   </div>
@@ -16,23 +15,28 @@
   <div class="col-xs-12">
     <div class="category">
       <div class="row">
-        <div class="col-xs-3 col-md-1 text-center">
-          <i class="{{catalogue.icon}}"></i>
-        </div>
-        <div class="col-xs-8 col-offset-xs-1 col-offset-md-0">
-          <div class="category__title">
-            {{catalogue.category}}
+        <div {{action "expandSection" catalogue on="click"}}>
+          <div class="col-xs-3 col-md-1 text-center">
+            <i class="category-icon {{catalogue.icon}}"></i>
           </div>
-        </div>
+          <div class="col-xs-8 col-offset-xs-1">
+            <div class="category__title">
+              {{catalogue.category}}
+            </div>
+          </div>
+        </div>  
 
+        {{#if catalogue.expanded}}
         {{#each catalogue.subcategories as |subcategory|}}
         <div class="row">
           <div class="col-xs-12">
-            <div class="subcategory">
+            <div class="subcategory" {{action "expandSection" subcategory on="click"}}>
               {{subcategory.name}}
             </div>
 
+            {{#if subcategory.expanded}}
             {{#each subcategory.items as |item|}}
+
             <div class="row line-item">
               <div class="col-xs-12 line-item-flex">
                
@@ -48,11 +52,12 @@
               </div>
             </div>
             {{/each}}
+            {{/if}}
 
           </div>
         </div>
-
       {{/each}}
+      {{/if}}
       </div>
     </div>
   </div>

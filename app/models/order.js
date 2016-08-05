@@ -6,4 +6,10 @@ export default Ember.Object.extend({
       return Number(acc) + Number(item.quantity);
     }, 0);
   })
+
+ ,firstName: Ember.computed('this.renter.name', function() {
+    let firstName = this.renter.name.split(' ');
+
+    return firstName[0];
+  })
 });

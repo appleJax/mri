@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import Category from 'mri/models/category';
+import Subcategory from 'mri/models/subcategory';
 import Item from 'mri/models/item';
 import Order from 'mri/models/order';
 
@@ -19,9 +20,11 @@ let newOrder = Order.create({
 
 let lineItem = Category.create({
   category: 'Tablets'
+ ,expanded: false
  ,icon:  'fa fa-tablet'
  ,subcategories: [
-    {name: 'iPad'
+    Subcategory.create({name: 'iPad'
+    ,expanded: false
     ,items: [
        Item.create({description: 'iPad Pro', label: 'iPad Pro', quantity: 0, comments: ''})
       ,Item.create({description: 'iPad Air 2 (5th Generation)', label: 'iPad Air 2', quantity: 0, comments: ''})
@@ -30,19 +33,21 @@ let lineItem = Category.create({
       ,Item.create({description: '2nd Generation iPad', label: '2nd Gen', quantity: 0, comments: ''})
       ,Item.create({description: 'iPad Mini', label: 'iPad Mini', quantity: 0, comments: ''})
      ]
-    }
-   ,{name: 'Samsung Galaxy Tab'
+    })
+   ,Subcategory.create({name: 'Samsung Galaxy Tab'
+    ,expanded: false
     ,items: [
        Item.create({description: 'High-end Samsung Galaxy Tablet', label: 'High-end', quantity: 0, comments: ''})
       ,Item.create({description: 'Low-end Samsung Galaxy Tablet', label: 'Low-end', quantity: 0, comments: ''})
      ]
-    }
-   ,{name: 'Microsoft Surface Pro'
+    })
+   ,Subcategory.create({name: 'Microsoft Surface Pro'
+    ,expanded: false
     ,items: [
        Item.create({description: 'High-end Samsung Galaxy Tablet', label: 'High-end', quantity: 0, comments: ''})
       ,Item.create({description: 'Low-end Samsung Galaxy Tablet', label: 'Low-end', quantity: 0, comments: ''})
      ]
-    }
+    })
   ]
 });
 
@@ -50,34 +55,39 @@ catalogueItems.pushObject(lineItem);
 
 lineItem = Category.create({
   category: 'Laptops'
+ ,expanded: false
  ,icon:  'fa fa-laptop'
  ,subcategories: [
-    {name: 'Apple'
+    Subcategory.create({name: 'Apple'
+    ,expanded: false
     ,items: [
        Item.create({description: '17" Macbook Pro' , label: '17" Macbook Pro', quantity: 0, comments: ''})
       ,Item.create({description: '15" Macbook Pro' , label: '15" Macbook Pro', quantity: 0, comments: ''})
       ,Item.create({description: '13" Macbook Air' , label: '13" Macbook Air', quantity: 0, comments: ''})
       ,Item.create({description: '11" Macbook Air' , label: '11" Macbook Air', quantity: 0, comments: ''})
      ]
-    }
-   ,{name: 'Dell'
+    })
+   ,Subcategory.create({name: 'Dell'
+    ,expanded: false
     ,items: [
        Item.create({description: 'High-end Dell Laptop', label: 'High-end', quantity: 0, comments: ''})
       ,Item.create({description: 'Low-end Dell Laptop', label: 'Low-end', quantity: 0, comments: ''})
      ]
-    }
-   ,{name: 'HP'
+    })
+   ,Subcategory.create({name: 'HP'
+    ,expanded: false
     ,items: [
        Item.create({description: 'High-end HP Laptop', label: 'High-end', quantity: 0, comments: ''})
       ,Item.create({description: 'Low-end HP Laptop', label: 'Low-end', quantity: 0, comments: ''})
      ]
-    }
-   ,{name: 'Lenovo'
+    })
+   ,Subcategory.create({name: 'Lenovo'
+    ,expanded: false
     ,items: [
        Item.create({description: 'High-end Lenovo Laptop', label: 'High-end', quantity: 0, comments: ''})
       ,Item.create({description: 'Low-end Lenovo Laptop', label: 'Low-end', quantity: 0, comments: ''})
      ]
-    }
+    })
   ]
 });
 
@@ -85,34 +95,39 @@ catalogueItems.pushObject(lineItem);
 
 lineItem = Category.create({
   category: 'Desktops'
+ ,expanded: false
  ,icon: 'fa fa-desktop'
  ,subcategories: [
-    {name: 'Mac Pro Tower'
+    Subcategory.create({name: 'Mac Pro Tower'
+    ,expanded: false
     ,items: [
        Item.create({description: 'High-end Mac Pro Tower', label: 'High-end', quantity: 0, comments: ''})
       ,Item.create({description: 'Low-end Mac Pro Tower', label: 'Low-end', quantity: 0, comments: ''})
      ]
-    }
-   ,{name: 'iMac'
+    })
+   ,Subcategory.create({name: 'iMac'
+    ,expanded: false
     ,items: [
        Item.create({description: '27" iMac (High-end)', label: '27" iMac (High-end)', quantity: 0, comments: ''})
       ,Item.create({description: '27" iMac (Low-end)', label: '27" iMac (Low-end)', quantity: 0, comments: ''})
       ,Item.create({description: '21" iMac (High-end)', label: '21" iMac (High-end)', quantity: 0, comments: ''})
       ,Item.create({description: '21" iMac (Low-end)', label: '21" iMac (Low-end)', quantity: 0, comments: ''})
      ]
-    }
-   ,{name: 'Mac Mini'
+    })
+   ,Subcategory.create({name: 'Mac Mini'
+    ,expanded: false
     ,items: [
        Item.create({description: 'High-end Mac Mini', label: 'High-end', quantity: 0, comments: ''})
       ,Item.create({description: 'Low-end Mac Mini', label: 'Low-end', quantity: 0, comments: ''})
      ]
-    }
-   ,{name: 'Windows PC'
+    })
+   ,Subcategory.create({name: 'Windows PC'
+    ,expanded: false
     ,items: [
        Item.create({description: 'High-end Windows PC Desktop', label: 'High-end', quantity: 0, comments: ''})
       ,Item.create({description: 'Low-end Windows PC Desktop', label: 'Low-end', quantity: 0, comments: ''})
      ]
-    }
+    })
   ]
 });
 
@@ -128,6 +143,10 @@ export default Ember.Service.extend({
   getCatalogue() {
     return catalogueItems;
   }  
+
+ ,expandSection(section) {
+    section.toggleProperty('expanded');
+  }
 
  ,incrementItem(item) {
     item.incrementProperty('quantity');
@@ -150,7 +169,6 @@ export default Ember.Service.extend({
     console.log(item.quantity, qty);
     if (item.quantity === 0) {
       item.set('quantity', qty);
-      console.log(item.quantity);
       if (item.quantity > 0) {
         item.set('ordered', true);
         newOrder.items.pushObject(item);
@@ -159,9 +177,7 @@ export default Ember.Service.extend({
         return;
       }
     }
-    console.log(item.quantity);
     item.set('quantity', qty);
-    console.log(item.quantity);
     if (item.quantity === 0) {
       item.set('ordered', false);
       newOrder.get('items').removeObject(item);
@@ -212,6 +228,7 @@ export default Ember.Service.extend({
  ,initializeNewOrder(order) {
     order.items.forEach(function(item) { 
       item.set('quantity', 0);
+      item.set('ordered', false);
     });
 
     newOrder = Order.create({

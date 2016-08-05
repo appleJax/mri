@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   actions: {
-    incItem(item) {
+    expandSection(section) {
+      this.get('store').expandSection(section);
+    }
+
+   ,incItem(item) {
       this.get('store').incrementItem(item);
     }
 
