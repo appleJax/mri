@@ -150,7 +150,7 @@ export default Ember.Service.extend({
 
  ,incrementItem(item) {
     item.incrementProperty('quantity');
-    if (item.quantity === 1) {
+    if (!newOrder.items.includes(item)) {
       this.addOrderItem(item);
     }
  }
@@ -206,6 +206,13 @@ export default Ember.Service.extend({
   }
 
  ,initializeNewOrder(order) {
+    catalogueItems.forEach( function(category) {
+      category.set('expanded', true);
+      category.subcategories.forEach( function(subcat) { 
+        subcat.set('expanded', false);
+      });
+    });
+
     order.items.forEach(function(item) { 
       item.set('quantity', 0);
       item.set('ordered', false);
