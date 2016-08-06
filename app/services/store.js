@@ -20,7 +20,7 @@ let newOrder = Order.create({
 
 let lineItem = Category.create({
   category: 'Tablets'
- ,expanded: false
+ ,expanded: true
  ,icon:  'fa fa-tablet'
  ,subcategories: [
     Subcategory.create({name: 'iPad'
@@ -55,7 +55,7 @@ catalogueItems.pushObject(lineItem);
 
 lineItem = Category.create({
   category: 'Laptops'
- ,expanded: false
+ ,expanded: true
  ,icon:  'fa fa-laptop'
  ,subcategories: [
     Subcategory.create({name: 'Apple'
@@ -95,7 +95,7 @@ catalogueItems.pushObject(lineItem);
 
 lineItem = Category.create({
   category: 'Desktops'
- ,expanded: false
+ ,expanded: true
  ,icon: 'fa fa-desktop'
  ,subcategories: [
     Subcategory.create({name: 'Mac Pro Tower'
