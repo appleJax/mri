@@ -8,6 +8,7 @@ $gray: #999
 $light-shadow: 0 0 12px #333
 $nav-green: #696
 $nav-text: #eee
+$placeholder-color: rgba(240,240,240, 0.5)
 $red: #a44
 $row-padding: 20px
 $white: #eee
@@ -186,6 +187,12 @@ td
   color: $white
   padding: $row-padding
 
+.order-crement
+  border-radius: 10px
+  padding: 1px
+  &:hover
+    background: rgba(20,80,20, 0.1)
+
 .remove-button
   margin-right: 20%
   &:hover
@@ -202,12 +209,19 @@ td
     border: none
     background: $nav-green
     border-radius: 5px
+    box-shadow: 0 0 15px darken($nav-green, $contrast * 1.5) inset
     color: $white
     margin-right: 15px
     padding: 5px
     width: 80%
-    &::-webkit-input-placeholder
-      color: rgba(240,240,240, 0.5)
+    &::-webkit-input-placeholder,
+      color: $placeholder-color 
+    &:-moz-placeholder,
+      color: $placeholder-color 
+    &::-moz-placeholder,
+      color: $placeholder-color 
+    &:-ms-input-placeholder
+      color: $placeholder-color 
   label
     min-width: 100px
     margin-left: 15px
