@@ -21,34 +21,6 @@ export default Ember.Route.extend({
       }
     }
 
-   ,setOrderName(name) {
-      this.get('store').setRenterName(name);
-    }
-
-   ,setOrderCompany(company) {
-     this.get('store').setRenterCompany(company);
-   }
-
-   ,setOrderEmail(email) {
-     this.get('store').setRenterEmail(email);
-   }
-
-   ,setOrderPhone(phone) {
-     this.get('store').setRenterPhone(phone);
-   }
-
-   ,setOrderLocation(location) {
-     this.get('store').setRenterLocation(location);
-   }
-
-   ,setOrderStartDate(startDate) {
-     this.get('store').setRentalStartDate(startDate);
-   }
-
-   ,setOrderEndDate(endDate) {
-     this.get('store').setRentalEndDate(endDate);
-   }
-
   ,requestQuote(order) {
      if ( order.items.length > 0 ) {
        this.get('store').requestForQuote(order);

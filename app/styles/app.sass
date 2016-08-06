@@ -17,7 +17,6 @@ $white: #eee
   border-radius: 2px
   box-shadow: 0 0 5px darken($catalogue-bg, $contrast), 0 0 10px lighten($catalogue-bg, $contrast) inset
   padding: $row-padding
-  
 
 html, body
   height: 100%
@@ -176,10 +175,12 @@ thead
   margin-right: 5%
 
 .table-striped tbody tr:nth-child(odd) td
-  background: lighten($catalogue-bg, $contrast * 3)
+  background: lighten($nav-green, $contrast * 3)
+  color: darken($nav-green, $contrast * 2)
 
 .table-striped tbody tr:nth-child(even) td
-  background: lighten($catalogue-bg, $contrast * 2)
+  background: lighten($nav-green, $contrast * 2)
+  color: darken($nav-green, $contrast * 2)
 
 td
   color: $white
@@ -198,11 +199,15 @@ td
 
 .renter-info
   input
-    background: darken($nav-green, $contrast * 1.5)
+    border: none
+    background: $nav-green
     border-radius: 5px
+    color: $white
     margin-right: 15px
-    padding: 3px
+    padding: 5px
     width: 80%
+    &::-webkit-input-placeholder
+      color: rgba(240,240,240, 0.5)
   label
     min-width: 100px
     margin-left: 15px

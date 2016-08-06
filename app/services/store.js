@@ -201,26 +201,6 @@ export default Ember.Service.extend({
     return newOrder;
   }
 
- ,setRenterName(name) {
-    newOrder.renter.set('name', name);
-  }
-
- ,setRenterCompany(company) {
-    newOrder.renter.set('company', company);
-  }
-
- ,setRenterEmail(email) {
-    newOrder.renter.set('email', email);
-  }
-
- ,setRenterPhone(phone) {
-    newOrder.renter.set('phone', phone);
-  }
-
- ,setRenterLocation(location) {
-    newOrder.set('location', location);
-  }
-
  ,requestForQuote(order) {
     // Fire off email with the order
   }
