@@ -25,7 +25,7 @@
    {{#each model.items as |item|}}
     <tr>
       <td class="text-center">
-        <span class="order-crement crement" {{action "decItem" item on="click"}}>-</span> 
+        <span class="order-crement crement" {{action "decItem" item model on="click"}}>-</span> 
         {{item.quantity}}
         <span class="order-crement crement" {{action "incItem" item on="click"}}>+</span> 
       </td>

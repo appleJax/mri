@@ -6,8 +6,11 @@ export default Ember.Route.extend({
       this.transitionTo('index');
     }
 
-   ,decItem(item) {
+   ,decItem(item, order) {
       this.get('store').decrementItem(item);
+      if (order.items.length === 0) {
+        this.transitionTo('index');
+      }
     }
 
    ,incItem(item) {
@@ -22,7 +25,7 @@ export default Ember.Route.extend({
     }
 
   ,requestQuote(order) {
-     if ( order.items.length > 0 ) {
+     if (order.items.length > 0) {
        this.get('store').requestForQuote(order);
        this.transitionTo('success');
      } else {

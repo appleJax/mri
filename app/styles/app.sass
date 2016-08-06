@@ -25,6 +25,16 @@ html, body
 body
   overflow-x: hidden
 
+.btn,
+a
+  &:active
+    outline: 0 !important 
+  &:focus
+    outline: 0
+
+a:focus
+  text-decoration: none
+
 #top
   background: $nav-green
   border: none
@@ -69,13 +79,6 @@ body
   margin: 0 10px
   padding: 5px
 
-.review-button
-  background: $nav-green 
-  &:hover, 
-  &:focus,
-  &:active,
-    background: lighten($nav-green, $contrast)
-
 .category
   border-top: 2px solid darken($catalogue-bg, $contrast / 2)
   padding: $row-padding
@@ -112,6 +115,9 @@ body
 
 .form-control
   display: inline-block
+  &:focus
+    border-color: #fff
+    box-shadow: 0 0 5px lighten($nav-green, $contrast * 2)
 
 .line-item
   i
@@ -214,6 +220,9 @@ td
     margin-right: 15px
     padding: 5px
     width: 80%
+    &:focus
+      border: 1px solid lighten($nav-green, $contrast * 1.5)
+      outline: 0
     &::-webkit-input-placeholder,
       color: $placeholder-color 
     &:-moz-placeholder,
