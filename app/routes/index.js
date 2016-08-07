@@ -14,16 +14,6 @@ export default Ember.Route.extend({
       this.get('store').decrementItem(item);
     }
 
-   ,addItem(item) {
-      let order = this.get('store').getOrder();
-
-      if ( order.items.includes(item) ) {
-        item.set('quantity', item.quantity);
-      } else {
-        this.get('store').addOrderItem(item);
-      }
-    }
-
    ,removeItem(item) {
       this.get('store').removeOrderItem(item);
     }
