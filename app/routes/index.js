@@ -22,7 +22,7 @@ export default Ember.Route.extend({
       if (orderItems.length > 0) {
         this.transitionTo('order');
       } else {
-        // Error Message: Please Add Some Items
+        // Display Error Message Prompting User to Add Items
       }
     }
   }

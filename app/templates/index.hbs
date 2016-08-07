@@ -5,6 +5,9 @@
       <i class="glyphicon glyphicon-shopping-cart"></i>
       <span class="order-count">{{model.order.totalItems}}</span>
       <button class="btn btn-success review-button" {{action "reviewOrder" model.order.items on="click"}}>Review Order</button>
+      {{#if noItemsBro}}
+        <p>Please Add Some Items to Your Order</p>
+      {{/if}}
     </div>
 
   </div>

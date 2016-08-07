@@ -173,8 +173,6 @@ input::-webkit-inner-spin-button
 
 thead
   color: $white
-
-thead
   margin: 10px
   padding: $row-padding * 2
 
@@ -194,8 +192,8 @@ td
   padding: $row-padding
 
 .order-crement
-  border-radius: 10px
-  padding: 1px
+  border-radius: 7px
+  padding: 0 5px 3px 5px
   &:hover
     background: rgba(20,80,20, 0.1)
 
@@ -211,7 +209,8 @@ td
   font-weight: bold
 
 .renter-info
-  input
+  input,
+  textarea
     border: none
     background: $nav-green
     border-radius: 5px
@@ -233,7 +232,12 @@ td
       color: $placeholder-color 
   label
     min-width: 100px
+    width: 100px
     margin-left: 15px
+
+#tech
+  margin-left: 15px
+  width: 15px
 
 .request-quote-button
   margin: 15px
