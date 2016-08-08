@@ -2,7 +2,7 @@
 
   <caption class="order-summary">
     Order Summary:
-    <button class="btn btn-success more-items pull-right" {{action "addMoreItems" on="click"}}>
+    <button class="btn btn-success more-items-btn pull-right" {{action "addMoreItems" on="click"}}>
       Add More Items
     </button>
   </caption>
@@ -26,7 +26,7 @@
     <tr>
       <td class="text-nowrap text-center">
         <span class="text-center order-crement crement" {{action "decItem" item model on="click"}}>-</span> 
-        {{item.quantity}}
+          {{input type="number" key-up=(action "updateItem" item) class="form-control quantity order__quantity" value=item.quantity }}
         <span class="text-center order-crement crement" {{action "incItem" item on="click"}}>+</span> 
       </td>
       <td>

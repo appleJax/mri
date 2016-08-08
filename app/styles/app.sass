@@ -176,16 +176,20 @@ thead
   margin: 10px
   padding: $row-padding * 2
 
-.more-items
+.more-items-btn
   margin-right: 5%
 
 .table-striped tbody tr:nth-child(odd) td
   background: lighten($nav-green, $contrast * 3)
   color: darken($nav-green, $contrast * 2)
+  .form-control
+    background: lighten($nav-green, $contrast * 3)
 
 .table-striped tbody tr:nth-child(even) td
   background: lighten($nav-green, $contrast * 2)
   color: darken($nav-green, $contrast * 2)
+  .form-control
+    background: lighten($nav-green, $contrast * 2)
 
 td
   color: $white
@@ -193,9 +197,15 @@ td
 
 .order-crement
   border-radius: 7px
+  margin: 0
   padding: 0 5px 3px 5px
   &:hover
     background: rgba(20,80,20, 0.1)
+
+.order__quantity
+  border: none
+  box-shadow: none
+  width: 45px
 
 .remove-button
   margin-right: 20%

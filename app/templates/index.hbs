@@ -45,7 +45,7 @@
                
                 <label class="item-label">{{item.label}}</label>
                 <i class="glyphicon glyphicon-minus-sign crement minus" {{action "decItem" item on="click"}}></i>
-                {{input type="number" min="0" step="1" max="9999" key-up=(action "updateItem" item) class="form-control quantity" value=item.quantity }}
+                {{input type="number" key-up=(action "updateItem" item) class="form-control quantity" value=item.quantity }}
                 <i class="glyphicon glyphicon-plus-sign crement" {{action "incItem" item on="click"}}></i>
 
                 {{#if item.ordered}}

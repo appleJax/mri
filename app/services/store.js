@@ -158,11 +158,14 @@ export default Ember.Service.extend({
  }
 
  ,decrementItem(item) {
-    if (item.quantity === 0) {
+    if (Number(item.quantity) === 0) {
+      if (newOrder.items.includes(item)) {
+        this.removeOrderItem(item);
+      }
       return;
     }
     item.decrementProperty('quantity');
-    if (item.quantity === 0) {
+    if (Number(item.quantity) === 0) {
       this.removeOrderItem(item);
     }
   }
