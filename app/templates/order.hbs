@@ -86,7 +86,11 @@
 
     <div class="form-group">
       <label for="tech">Technician Needed</label>
-      {{input type="checkbox" id="tech" checked=model.technician}}
+      <div class="tech-checkbox {{if model.technician "is-selected"}}" {{action "toggleTech" model.technician}}>
+        {{#if model.technician}}
+          <i class="glyphicon glyphicon-ok"></i>
+        {{/if}}
+      </div>
     </div>
 
     <div class="form-group">

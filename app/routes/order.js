@@ -24,6 +24,10 @@ export default Ember.Route.extend({
       }
     }
 
+  ,toggleTech() {
+     this.get('store').toggleTech();
+   }
+
   ,requestQuote(order) {
      if (order.items.length > 0) {
        this.get('store').requestForQuote(order);

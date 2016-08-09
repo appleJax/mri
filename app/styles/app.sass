@@ -251,6 +251,26 @@ td
   margin-left: 15px
   width: 15px
 
+.tech-checkbox
+  background: darken($nav-green, $contrast / 2)
+  border-radius: 10px
+  box-shadow: 0 0 10px #222 inset
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 44px
+  width: 44px
+  i
+    margin-bottom: 3px
+  &:hover
+    background: $nav-green
+    cursor: pointer
+  &.is-selected
+    background: $nav-green
+    box-shadow: 0 0 10px #030
+    &:hover
+      background: darken($nav-green, $contrast / 2)
+
 .request-quote-button
   margin: 20px 15px 15px
 

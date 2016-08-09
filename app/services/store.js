@@ -206,6 +206,10 @@ export default Ember.Service.extend({
     return newOrder;
   }
 
+ ,toggleTech() {
+    newOrder.toggleProperty('technician');
+  }
+
  ,requestForQuote(order) {
     // Fire off email with the order
   }
