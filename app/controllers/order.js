@@ -1,8 +1,15 @@
 import Ember from 'ember';
+import OrderValidations from '../validations/order';
 
 export default Ember.Controller.extend({
-  actions: {
-    updateItem(item) {
+  OrderValidations
+
+ ,actions: {
+    submit(changeset) {
+      return changeset.save();
+    }
+
+   ,updateItem(item) {
       let newQty = Math.ceil(Number(item.quantity));
 
       if (item.quantity === '') {

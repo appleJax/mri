@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     updateItem(item) {
+      if (item.quantity === '') {
+        return;
+      }
+
       let newQty = Math.ceil(Number(item.quantity));
 
       if (newQty <= 0) {
