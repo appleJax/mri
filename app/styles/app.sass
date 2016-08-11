@@ -260,7 +260,7 @@ td
 
 .tech-checkbox
   align-items: center
-  background: #8a8
+  background: lighten($catalogue-bg, $contrast)
   border-radius: 10px
   box-shadow: 0 0 5px #111 inset
   display: flex
@@ -269,14 +269,14 @@ td
   opacity: 0.6
   width: 44px
   i
-    color: #777
+    color: $catalogue-bg
     margin-bottom: 3px
   &:hover
-    background: lighten($nav-green, $contrast * 3)
+    background: lighten($catalogue-bg, $contrast * 3)
     cursor: pointer
   &.is-selected
     background: $nav-green
-    box-shadow: 0 0 10px #030
+    box-shadow: 0 0 10px darken($catalogue-bg, $contrast), 0 0 10px $catalogue-bg inset
     opacity: 1
     i
       color: #fff
