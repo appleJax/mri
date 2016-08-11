@@ -4,12 +4,16 @@ export default Ember.Controller.extend({
   actions: {
     updateItem(item) {
       if (item.quantity === '') {
+        if (this.model.order.items.includes(item)) {
+          item.set('ordered', false);
+          this.model.order.items.removeObject(item);
+        }
         return;
       }
 
       let newQty = Math.ceil(Number(item.quantity));
 
-      if (newQty <= 0) {
+      if (newQty < 0) {
         item.set('quantity', 0);
       } else if (newQty > 2000) {
         item.set('quantity', 2000);
