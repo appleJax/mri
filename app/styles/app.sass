@@ -21,9 +21,14 @@ $white: #eee
 
 html, body
   height: 100%
+  position: relative
 
 body
   overflow-x: hidden
+  min-height: 100%
+
+.main
+  min-height: calc(100vh - 120px)
 
 .btn,
 a
@@ -87,7 +92,6 @@ a:focus
     margin-right: 20px
   &:hover
     background: lighten($catalogue-bg, $contrast / 2)
-    cursor: pointer
 
 .category__title
   margin-bottom: 15px
@@ -99,6 +103,7 @@ a:focus
   padding: $row-padding
   &:hover
     background: lighten($catalogue-bg, $contrast * 1.5) 
+    cursor: pointer
 
 .line-item
   background: lighten($catalogue-bg, $contrast * 1.5)
@@ -252,24 +257,30 @@ td
   width: 15px
 
 .tech-checkbox
-  background: darken($nav-green, $contrast / 2)
-  border-radius: 10px
-  box-shadow: 0 0 10px #222 inset
-  display: flex
   align-items: center
-  justify-content: center
+  background: $gray
+  border-radius: 10px
+  box-shadow: 0 0 5px #111 inset
+  display: flex
   height: 44px
+  justify-content: center
+  opacity: 0.6
   width: 44px
   i
+    color: #777
     margin-bottom: 3px
   &:hover
-    background: $nav-green
+    background: lighten($nav-green, $contrast * 3)
     cursor: pointer
   &.is-selected
     background: $nav-green
     box-shadow: 0 0 10px #030
-    &:hover
-      background: darken($nav-green, $contrast / 2)
+    opacity: 1
+    i
+      color: #fff
+
+.glyphicon-question-sign
+  font-size: 1.5em
 
 .request-quote-button
   margin: 20px 15px 15px
@@ -293,7 +304,6 @@ footer
   height: 50px
   left: 0
   padding: $row-padding
-  margin: 0
   right: 0
   a
     text-decoration: none

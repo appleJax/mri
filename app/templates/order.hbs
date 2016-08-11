@@ -89,6 +89,8 @@
       <div class="tech-checkbox {{if model.technician "is-selected"}}" {{action "toggleTech" model.technician}}>
         {{#if model.technician}}
           <i class="glyphicon glyphicon-ok"></i>
+        {{else}}
+          <i class="glyphicon glyphicon-question-sign"></i>
         {{/if}}
       </div>
     </div>
