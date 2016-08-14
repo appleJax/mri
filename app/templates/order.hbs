@@ -26,14 +26,14 @@
     <tr>
       <td class="text-nowrap text-center">
         <span class="text-center order-crement crement" {{action "decItem" item model on="click"}}>-</span>
-          {{input type="number" key-up=(action "updateItem" item) class="form-control quantity order__quantity" value=item.quantity }}
+          {{input type="number" key-up=(route-action "updateItem" item model) class="form-control quantity order__quantity" value=item.quantity }}
         <span class="text-center order-crement crement" {{action "incItem" item on="click"}}>+</span> 
       </td>
       <td>
           {{item.description}} 
       </td>
       <td>
-        <i class="glyphicon glyphicon-remove-sign pull-right remove-button" {{action "removeItem" item model on="click"}}></i>
+        <i class="glyphicon glyphicon-remove-sign remove-button" {{action "removeItem" item on="click"}}></i>
       </td>
     </tr>
   {{/each}}
@@ -47,59 +47,8 @@
   </tbody>
 </table>
 
-<div class="renter-info">
-  <form role="form" {{action "requestQuote" model on="submit"}}>
-    <div class="form-group">
-      <label for="name">Name</label>
-      {{input type="text" id="name" value=model.renter.name placeholder="First Last"}}
-    </div>
-
-    <div class="form-group">
-      <label for="company">Company</label>
-      {{input type="text" id="company" value=model.renter.company placeholder="Awesome Inc."}}
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      {{input type="email" id="email" value=model.renter.email placeholder="boss@awesome-inc.com"}}
-    </div>
-
-    <div class="form-group">
-      <label for="phone">Phone</label>
-      {{input type="tel" id="phone" value=model.renterphone placeholder="555-555-5555"}}
-    </div>
-
-    <div class="form-group">
-      <label for="location">Location</label>
-      {{input type="text" id="location" value=model.location placeholder="Event Location"}}
-    </div>
-
-    <div class="form-group">
-      <label for="start-date">Start Date</label>
-      {{input type="date" id="start-date" value=model.startDate}}
-    </div>
-
-    <div class="form-group">
-      <label for="end-date">End Date</label>
-      {{input type="date" id="end-date" value=model.endDate}}
-    </div>
-
-    <div class="form-group">
-      <label for="tech">Technician Needed</label>
-      <div class="tech-checkbox {{if model.technician "is-selected"}}" {{action "toggleTech" model.technician}}>
-        {{#if model.technician}}
-          <i class="glyphicon glyphicon-ok"></i>
-        {{else}}
-          <i class="glyphicon glyphicon-question-sign"></i>
-        {{/if}}
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="comments">Details</label>
-      {{textarea rows="7" id="comments" value=model.comments placeholder="Specify any special requirements here, such as machine specs, labor requirements, setup/delivery details, accessories, etc."}}
-    </div>
-
-   <button class="btn btn-success btn-lg request-quote-button">Request a Quote!</button> 
-  </form>
-</div>
+{{renter-form class="renter-info"
+  model=model
+  changeset=(changeset model OrderValidations)
+  submit=(action "submit")
+}}

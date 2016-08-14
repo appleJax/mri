@@ -1,10 +1,31 @@
 import Ember from 'ember';
+import OrderValidations from '../validations/order';
 
 export default Ember.Route.extend({
-  actions: {
+  OrderValidations
+
+ ,actions: {
     addMoreItems() {
       this.transitionTo('index');
     }
+
+ ,updateItem(item, order) {
+    let newQty = Math.ceil(Number(item.quantity));
+
+    if (item.quantity === '') {
+      return;
+    }
+    if (newQty <= 0 ) {
+      this.get('store').removeOrderItem(item);
+      if (order.items.length === 0) {
+        this.transitionTo('index');
+      }
+    } else if (newQty > 2000) {
+      item.set('quantity', 2000);
+    } else {
+      item.set('quantity', newQty);
+    }
+  }
 
    ,decItem(item, order) {
       this.get('store').decrementItem(item);
@@ -28,7 +49,7 @@ export default Ember.Route.extend({
      this.get('store').toggleTech();
    }
 
-  ,requestQuote(order) {
+  ,requestQuote(order, changeset) {
      if (order.items.length > 0) {
        this.get('store').requestForQuote(order);
        this.transitionTo('success');

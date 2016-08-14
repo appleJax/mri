@@ -1,0 +1,62 @@
+<form role="form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      {{input type="text" id="name" value=changeset.name placeholder="First Last"}}
+    </div>
+
+    {{#if changeset.error.name}}
+      <p class="form-error">Name is Required</p>
+    {{/if}}
+
+    <div class="form-group">
+      <label for="company">Company</label>
+      {{input type="text" id="company" value=model.company placeholder="Awesome Inc."}}
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      {{input type="email" id="email" value=changeset.email placeholder="boss@awesome-inc.com"}}
+    </div>
+
+    {{#if changeset.errors}}
+      <p class="form-error">Email is Required</p>
+    {{/if}}
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      {{input type="tel" id="phone" value=changeset.phone placeholder="555-555-5555"}}
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      {{input type="text" id="location" value=changeset.location placeholder="Event Location"}}
+    </div>
+
+    <div class="form-group">
+      <label for="start-date">Start Date</label>
+      {{input type="date" id="start-date" value=changeset.startDate}}
+    </div>
+
+    <div class="form-group">
+      <label for="end-date">End Date</label>
+      {{input type="date" id="end-date" value=model.endDate}}
+    </div>
+
+    <div class="form-group">
+      <label for="tech">Technician Needed</label>
+      <div class="tech-checkbox {{if model.technician "is-selected"}}" {{action (route-action "toggleTech")}}>
+        {{#if model.technician}}
+          <i class="glyphicon glyphicon-ok"></i>
+        {{else}}
+          <i class="glyphicon glyphicon-question-sign"></i>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="details">Details</label>
+      {{textarea rows="7" id="details" value=model.details placeholder="Specify any special requirements here, such as machine specs, labor requirements, setup/delivery details, accessories, etc."}}
+    </div>
+
+   <button {{action submit changeset}} class="btn btn-success btn-lg request-quote-button">Request a Quote!</button>
+  </form>

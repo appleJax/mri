@@ -6,17 +6,15 @@ import Order from 'mri/models/order';
 
 const catalogueItems = [];
 let newOrder = Order.create({
-  renter: {
-    name: ''
-   ,company: ''
-   ,email: ''
-   ,phone: ''
-  }
+  name: ''
+ ,company: ''
+ ,email: ''
+ ,phone: ''
  ,location: ''
  ,startDate: ''
  ,endDate: ''
  ,technician: false
- ,comments: ''
+ ,details: ''
  ,items: []
 });
 
@@ -228,15 +226,15 @@ export default Ember.Service.extend({
     });
 
     newOrder = Order.create({
-      renter: {
-        name: ''
-       ,company: ''
-       ,email: ''
-       ,phone: ''
-      }
+      name: ''
+     ,company: ''
+     ,email: ''
+     ,phone: ''
      ,location: ''
      ,startDate: ''
      ,endDate: ''
+     ,technician: false
+     ,details: ''
      ,items: []
     });
   }
