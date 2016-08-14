@@ -49,7 +49,7 @@ export default Ember.Route.extend({
      this.get('store').toggleTech();
    }
 
-  ,requestQuote(order, changeset) {
+  ,requestQuote(order) {
      if (order.items.length > 0) {
        this.get('store').requestForQuote(order);
        this.transitionTo('success');
