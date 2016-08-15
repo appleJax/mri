@@ -7,8 +7,8 @@ export default Ember.Object.extend({
     }, 0);
   })
 
- ,firstName: Ember.computed('this.renter.name', function() {
-    let firstName = this.renter.name.split(' ');
+ ,firstName: Ember.computed('this.name', function() {
+    let firstName = this.name.split(' ');
 
     return firstName[0];
   })

@@ -7,15 +7,20 @@ import Order from 'mri/models/order';
 const catalogueItems = [];
 let newOrder = Order.create({
   name: ''
+ ,validName: true
  ,company: ''
  ,email: ''
+ ,validEmail: true
  ,phone: ''
  ,location: ''
+ ,validLocation: true
  ,startDate: ''
+ ,validStartDate: true
  ,endDate: ''
  ,technician: false
  ,details: ''
  ,items: []
+ ,emptyCartError: false
 });
 
 let lineItem = Category.create({
@@ -227,15 +232,20 @@ export default Ember.Service.extend({
 
     newOrder = Order.create({
       name: ''
+     ,validName: true
      ,company: ''
      ,email: ''
+     ,validEmail: true
      ,phone: ''
      ,location: ''
+     ,validLocation: true
      ,startDate: ''
+     ,validStartDate: true
      ,endDate: ''
      ,technician: false
      ,details: ''
      ,items: []
+     ,emptyCartError: false
     });
   }
 });

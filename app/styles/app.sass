@@ -78,6 +78,21 @@ a:focus
   i
     font-size: 20px
 
+.form-error
+  color: lighten($nav-green, $contrast)
+  margin: 3px 0 25px 120px
+
+.empty-cart-error-div
+  background: $catalogue-bg
+  border-radius: 10px
+  box-shadow: 0 0 5px darken($catalogue-bg, $contrast) inset
+  margin: 25px auto 10px
+  padding: 5px
+  width: 250px
+
+.empty-cart-error-index
+  margin: 0
+
 .order-count
   background: #fff
   border-radius: 2px
@@ -188,12 +203,14 @@ thead
 
 .table-striped tbody tr:nth-child(odd) td
   background: lighten($nav-green, $contrast * 3)
+  border: none !important
   color: darken($nav-green, $contrast * 2)
   .form-control
     background: lighten($nav-green, $contrast * 3)
 
 .table-striped tbody tr:nth-child(even) td
   background: lighten($nav-green, $contrast * 2)
+  border: none
   color: darken($nav-green, $contrast * 2)
   .form-control
     background: lighten($nav-green, $contrast * 2)
@@ -286,6 +303,10 @@ td
 
 .request-quote-button
   margin: 20px 15px 15px
+
+.empty-cart-error
+  margin-left: 15px
+  margin-bottom: 15px
 
 /* Success Page */
 

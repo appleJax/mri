@@ -1,62 +1,89 @@
 <form role="form">
-    <div class="form-group">
-      <label for="name">Name</label>
-      {{input type="text" id="name" value=changeset.name placeholder="First Last"}}
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{input type="text" id="name" value=model.name placeholder="First Last"}}
+  </div>
+
+  {{#unless model.validName}}
+    <p class="form-error">
+      <i class="glyphicon glyphicon-exclamation-sign"></i>
+      Name is Required
+    </p>
+  {{/unless}}
+
+  <div class="form-group">
+    <label for="company">Company</label>
+    {{input type="text" id="company" value=model.company placeholder="Awesome Inc."}}
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    {{input type="email" id="email" value=model.email placeholder="boss@awesome-inc.com"}}
+  </div>
+
+  {{#unless model.validEmail}}
+    <p class="form-error">
+      <i class="glyphicon glyphicon-exclamation-sign"></i>
+      Please Enter a Valid Email
+    </p>
+  {{/unless}}
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    {{input type="tel" id="phone" value=model.phone placeholder="555-555-5555"}}
+  </div>
+
+  <div class="form-group">
+    <label for="location">Location</label>
+    {{input type="text" id="location" value=model.location placeholder="Event Location"}}
+  </div>
+
+  {{#unless model.validLocation}}
+    <p class="form-error">
+      <i class="glyphicon glyphicon-exclamation-sign"></i>
+      Location is Required
+    </p>
+  {{/unless}}
+
+  <div class="form-group">
+    <label for="start-date">Start Date</label>
+    {{input type="date" id="start-date" value=model.startDate}}
+  </div>
+
+  {{#unless model.validStartDate}}
+    <p class="form-error">
+      <i class="glyphicon glyphicon-exclamation-sign"></i>
+      Valid Start Date Required
+    </p>
+  {{/unless}}
+
+  <div class="form-group">
+    <label for="end-date">End Date</label>
+    {{input type="date" id="end-date" value=model.endDate}}
+  </div>
+
+  <div class="form-group">
+    <label for="tech">Technician Needed</label>
+    <div class="tech-checkbox {{if model.technician "is-selected"}}" {{action (route-action "toggleTech")}}>
+      {{#if model.technician}}
+        <i class="glyphicon glyphicon-ok"></i>
+      {{else}}
+        <i class="glyphicon glyphicon-question-sign"></i>
+      {{/if}}
     </div>
+  </div>
 
-    {{#if changeset.error.name}}
-      <p class="form-error">Name is Required</p>
-    {{/if}}
+  <div class="form-group">
+    <label for="details">Details</label>
+    {{textarea rows="7" id="details" value=model.details placeholder="Specify any special requirements here, such as machine specs, labor requirements, setup/delivery details, accessories, etc."}}
+  </div>
 
-    <div class="form-group">
-      <label for="company">Company</label>
-      {{input type="text" id="company" value=model.company placeholder="Awesome Inc."}}
-    </div>
+  <button {{action submit model}} class="btn btn-success btn-lg request-quote-button">Request a Quote!</button>
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      {{input type="email" id="email" value=changeset.email placeholder="boss@awesome-inc.com"}}
-    </div>
-
-    {{#if changeset.errors}}
-      <p class="form-error">Email is Required</p>
-    {{/if}}
-
-    <div class="form-group">
-      <label for="phone">Phone</label>
-      {{input type="tel" id="phone" value=changeset.phone placeholder="555-555-5555"}}
-    </div>
-
-    <div class="form-group">
-      <label for="location">Location</label>
-      {{input type="text" id="location" value=changeset.location placeholder="Event Location"}}
-    </div>
-
-    <div class="form-group">
-      <label for="start-date">Start Date</label>
-      {{input type="date" id="start-date" value=changeset.startDate}}
-    </div>
-
-    <div class="form-group">
-      <label for="end-date">End Date</label>
-      {{input type="date" id="end-date" value=model.endDate}}
-    </div>
-
-    <div class="form-group">
-      <label for="tech">Technician Needed</label>
-      <div class="tech-checkbox {{if model.technician "is-selected"}}" {{action (route-action "toggleTech")}}>
-        {{#if model.technician}}
-          <i class="glyphicon glyphicon-ok"></i>
-        {{else}}
-          <i class="glyphicon glyphicon-question-sign"></i>
-        {{/if}}
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="details">Details</label>
-      {{textarea rows="7" id="details" value=model.details placeholder="Specify any special requirements here, such as machine specs, labor requirements, setup/delivery details, accessories, etc."}}
-    </div>
-
-   <button {{action submit changeset}} class="btn btn-success btn-lg request-quote-button">Request a Quote!</button>
-  </form>
+  {{#if model.emptyCartError}}
+    <p class="form-error empty-cart-error"> 
+      <i class="glyphicon glyphicon-exclamation-sign"></i>
+      Please Order Something
+    </p>
+  {{/if}}
+</form>

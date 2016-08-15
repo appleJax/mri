@@ -2,7 +2,7 @@
 
   <caption class="order-summary">
     Order Summary:
-    <button class="btn btn-success more-items-btn pull-right" {{action "addMoreItems" on="click"}}>
+    <button class="btn btn-success more-items-btn pull-right" {{action "addMoreItems" model on="click"}}>
       Add More Items
     </button>
   </caption>
@@ -33,12 +33,12 @@
           {{item.description}} 
       </td>
       <td>
-        <i class="glyphicon glyphicon-remove-sign remove-button" {{action "removeItem" item on="click"}}></i>
+        <i class="glyphicon glyphicon-remove-sign remove-button" {{action "removeItem" item model on="click"}}></i>
       </td>
     </tr>
   {{/each}}
 
-    <tr id="order-total-row">
+    <tr id="order-total-row" class="noBorder">
       <td class="text-center">{{model.totalItems}}</td>
       <td>Total Items</td>
       <td></td>
@@ -49,6 +49,5 @@
 
 {{renter-form class="renter-info"
   model=model
-  changeset=(changeset model OrderValidations)
-  submit=(action "submit")
+  submit=(route-action "validateForm")
 }}

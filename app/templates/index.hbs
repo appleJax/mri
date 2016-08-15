@@ -4,9 +4,14 @@
     <div class="catalogue__header text-center">
       <i class="glyphicon glyphicon-shopping-cart"></i>
       <span class="order-count">{{model.order.totalItems}}</span>
-      <button class="btn btn-success review-button" {{action "reviewOrder" model.order.items on="click"}}>Review Order</button>
-      {{#if noItemsBro}}
-        <p>Please Add Some Items to Your Order</p>
+      <button class="btn btn-success review-button" {{action "reviewOrder" model.order on="click"}}>Review Order</button>
+      {{#if model.order.emptyCartError}}
+        <div class="empty-cart-error-div">
+          <p class="form-error empty-cart-error-index">
+            <i class="glyphicon glyphicon-exclamation-sign"></i>
+            Please Order Something
+          </p>
+        </div>
       {{/if}}
     </div>
 

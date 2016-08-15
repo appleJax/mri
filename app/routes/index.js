@@ -50,11 +50,12 @@ export default Ember.Route.extend({
       }
     }
 
-   ,reviewOrder(orderItems) {
-      if (orderItems.length > 0) {
+   ,reviewOrder(order) {
+      if (order.items.length > 0) {
+        order.set('emptyCartError', false);
         this.transitionTo('order');
       } else {
-        // Display Error Message Prompting User to Add Items
+        order.set('emptyCartError', true);
       }
     }
   }
