@@ -21,11 +21,13 @@ $white: #eee
 
 html, body
   height: 100%
+  max-width: 100%
+  overflow-x: hidden
   position: relative
 
 body
-  overflow-x: hidden
   min-height: 100%
+  max-width: 100vw
 
 .main
   min-height: calc(100vh - 120px)
@@ -72,6 +74,7 @@ a:focus
   font-size: 18px
   margin-bottom: 50px
   padding: $row-padding
+  padding-right: 5px
 
 .catalogue__header
   @extend %header-div
@@ -142,15 +145,17 @@ a:focus
     box-shadow: 0 0 5px lighten($nav-green, $contrast * 2)
 
 .line-item
+  padding-right: 3px
   i
-    margin-right: 5px
+    margin: 0 4px
   .item-label
-    margin-right: 5px
+    margin-right: 3px
     width: 175px
 
 .line-item-flex
-  display: flex
   align-items: center
+  display: flex
+  padding-right: 3px
 
 .crement
   margin: 0 5px
@@ -159,13 +164,14 @@ a:focus
     cursor: pointer
 
 .line-item .ember-text-field
-  width: 50px
+  width: 40px
 
 .quantity
   background: lighten($nav-green, $contrast * 3)
   border-radius: 7px
   height: 26px
-  padding: 5px
+  margin-right: 0
+  padding: 0
   text-align: center
 
 input::-webkit-outer-spin-button,
@@ -175,7 +181,8 @@ input::-webkit-inner-spin-button
 
 .remove
   color: $catalogue-bg
-  margin-left: 5px
+  margin-left: 3px
+  margin-right: 0
   padding-top: 1px
   &:hover
     color: $red

@@ -49,7 +49,7 @@
               <div class="col-xs-12 line-item-flex">
                
                 <label class="item-label">{{item.label}}</label>
-                <i class="glyphicon glyphicon-minus-sign crement minus" {{action "decItem" item on="click"}}></i>
+                <i class="glyphicon glyphicon-minus-sign crement" {{action "decItem" item on="click"}}></i>
                 {{input type="number" key-up=(route-action "updateItem" item model.order) class="form-control quantity" value=item.quantity }}
                 <i class="glyphicon glyphicon-plus-sign crement" {{action "incItem" item on="click"}}></i>
 
